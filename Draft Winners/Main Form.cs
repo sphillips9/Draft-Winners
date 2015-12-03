@@ -8,6 +8,29 @@ namespace Draft_Winners
 {
     public partial class MainForm : Form
     {
+
+        #region variables
+
+        private static Stopwatch watch;
+        int uniqueID = 0;
+
+        public delegate void ProgressBarIncrement(int progress);
+        public ProgressBarIncrement updateBar;
+
+        public enum Sports { Hockey, Football, Basketball }
+        #endregion
+
+        #region constructor
+        public MainForm()
+        {
+            updateBar = new ProgressBarIncrement(updateProgressBar);
+            InitializeComponent();
+            uniqueID = 0;
+            watch = new Stopwatch();
+        }
+        #endregion
+
+        #region Progress Bar Logic
         private class TeamCompleteListener
         {
             public void Subscribe(GenerateTeams teamGen)
@@ -28,12 +51,6 @@ namespace Draft_Winners
                 thread.Start();
             }
         }
-
-        private static Stopwatch watch;
-        int uniqueID = 0;
-
-        public delegate void ProgressBarIncrement(int progress);
-        public ProgressBarIncrement updateBar;
 
         public void updateProgressBar(int progress)
         {
@@ -62,6 +79,10 @@ namespace Draft_Winners
                 return;
             }
         }
+        #endregion
+
+        #region StopWatch Setup
+
         [ConditionalAttribute("DEBUG")]
         private static void startTime()
         {
@@ -77,122 +98,58 @@ namespace Draft_Winners
             string elapsedTime = String.Format("{0:00}:{1:00}:{2:00}.{3:00}", ts.Hours, ts.Minutes, ts.Seconds, ts.Milliseconds / 10);
             Console.WriteLine("Operation Length: " + elapsedTime);
         }
+        #endregion
 
-        public MainForm()
+        #region Calculate Player Values
+        private void footballPlayerStatsCalculator(object sender, EventArgs e)
         {
-            updateBar = new ProgressBarIncrement(updateProgressBar);
-            InitializeComponent();
-            uniqueID = 0;
-            watch = new Stopwatch();
+            calculatePlayerStats(Sports.Football);
         }
 
-        // Opens NFL team file
-        private void openCSVFileToolStripMenuItem_Click(object sender, EventArgs e)
+        private void hockeyPlayerStatsCalculator(object sender, EventArgs e)
         {
-            FootballTeamGenerator teamGenerator = (FootballTeamGenerator)parseFile(Leagues.NFL);
-            if (teamGenerator == null)
-            {
-                return;
-            }
-
-            TeamCompleteListener listener = new TeamCompleteListener();
-            listener.Subscribe(teamGenerator);
-            Thread generationThread = new Thread(() =>
-            {
-                teamGenerator.generateTopNFLTeams(updateBar);
-                this.Invoke((MethodInvoker)delegate
-                {
-                    menuStrip1.Visible = true;
-                });
-            });
-
-            menuStrip1.Visible = false;
-            generationThread.IsBackground = true;
-            generationThread.Start();
+            calculatePlayerStats(Sports.Hockey);
         }
 
-        private void openCollegeFileToolStripMenuItem_Click(object sender, EventArgs e)
+        private void basketballPlayerStatsCalculator(object sender, EventArgs e)
         {
-            FootballTeamGenerator teamGenerator = (FootballTeamGenerator)parseFile(Leagues.NFL);
-            if (teamGenerator == null)
-            {
-                return;
-            }
-
-            TeamCompleteListener listener = new TeamCompleteListener();
-            listener.Subscribe(teamGenerator);
-            Thread generationThread = new Thread(() =>
-            {
-                teamGenerator.generateTopCollegeTeams(updateBar);
-                this.Invoke((MethodInvoker)delegate
-                {
-                    menuStrip1.Visible = true;
-                });
-            });
-
-            menuStrip1.Visible = false;
-            generationThread.IsBackground = true;
-            generationThread.Start();
+            calculatePlayerStats(Sports.Basketball);
         }
 
-        private void openNHLFileToolStripMenuItem_Click(object sender, EventArgs e)
+        private void calculatePlayerStats(Sports sport)
         {
-            NHLTeamGenerator teamGenerator = (NHLTeamGenerator)parseFile(Leagues.NHL);
-            if (teamGenerator == null)
-            {
-                return;
-            }
-
-            TeamCompleteListener listener = new TeamCompleteListener();
-            listener.Subscribe(teamGenerator);
-            Thread generationThread = new Thread(() =>
-            {
-                teamGenerator.generateNFLTeams(updateBar);
-                this.Invoke((MethodInvoker)delegate
-                {
-                    menuStrip1.Visible = true;
-                });
-            });
-
-            menuStrip1.Visible = false;
-            generationThread.IsBackground = true;
-            generationThread.Start();
-        }
-
-        private void footballToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            GenerateTeams teamGen = parseFile(Leagues.NFL);
+            GenerateTeams teamGen = parseFile(sport);
             if (teamGen != null)
             {
                 saveFile(teamGen.convertPlayersToValues());
             }
         }
+        #endregion
 
-        private void hockeyToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            GenerateTeams teamGen = parseFile(Leagues.NHL);
-            if (teamGen != null)
-            {
-                saveFile(teamGen.convertPlayersToValues());
-            }
-        }
-
-        private GenerateTeams parseFile(Leagues league)
+        #region File Parsing
+        private GenerateTeams parseFile(Sports league)
         {
             startTime();
+
             workingProgressLabel.Text = "Starting Calculations";
             GenerateTeams teamGenerator;
+            int salaryCap = Convert.ToInt32(salaryCapTextBox.Text);
+            int threshold = Convert.ToInt32(salaryThresholdTextBox.Text);
 
-            if (league == Leagues.NFL)
+            if (league == Sports.Football)
             {
-                teamGenerator = new FootballTeamGenerator(Convert.ToInt32(salaryCapTextBox.Text), Convert.ToInt32(salaryThresholdTextBox.Text));
+                teamGenerator = new FootballTeamGenerator(salaryCap, threshold);
             }
-            else if (league == Leagues.NHL) {
-                teamGenerator = new NHLTeamGenerator(Convert.ToInt32(salaryCapTextBox.Text), Convert.ToInt32(salaryThresholdTextBox.Text));
+            else if (league == Sports.Hockey) {
+                teamGenerator = new NHLTeamGenerator(salaryCap, threshold);
+            }
+            else if (league == Sports.Basketball)
+            {
+                teamGenerator = new BasketballTeamGenerator(salaryCap, threshold);
             }
             else
             {
-                teamGenerator = null;
+                throw new NotImplementedException();
             }
 
             OpenFileDialog file = new OpenFileDialog();
@@ -213,7 +170,7 @@ namespace Draft_Winners
                     }
 
 
-                    Player.Positions pos = convertToEnum(values[0]);
+                    Player.Positions pos = Player.convertToEnum(values[0]);
                     if (pos == Player.Positions.INVALID)
                     {
                         continue;
@@ -253,53 +210,55 @@ namespace Draft_Winners
                 }
             }
         }
+        #endregion
 
-        private Player.Positions convertToEnum(String playerPosition)
+        #region Team Generation Methods
+        private void openNFLTeamCalculator(object sender, EventArgs e)
         {
-            if (playerPosition == Player.Positions.QB.ToString())
-            {
-                return Player.Positions.QB;
-            }
-            else if (playerPosition == Player.Positions.RB.ToString())
-            {
-                return Player.Positions.RB;
-            }
-            else if (playerPosition == Player.Positions.DST.ToString())
-            {
-                return Player.Positions.DST;
-            }
-            else if (playerPosition == Player.Positions.TE.ToString())
-            {
-                return Player.Positions.TE;
-            }
-            else if (playerPosition == Player.Positions.WR.ToString())
-            {
-                return Player.Positions.WR;
-            }
-            else if (playerPosition == Player.Positions.C.ToString())
-            {
-                return Player.Positions.C;
-            }
-            else if (playerPosition == Player.Positions.RW.ToString())
-            {
-                return Player.Positions.RW;
-            }
-            else if (playerPosition == Player.Positions.LW.ToString())
-            {
-                return Player.Positions.LW;
-            }
-            else if (playerPosition == Player.Positions.D.ToString())
-            {
-                return Player.Positions.D;
-            }
-            else if (playerPosition == Player.Positions.G.ToString())
-            {
-                return Player.Positions.G;
-            }
-
-            return Player.Positions.INVALID;
+            FootballTeamGenerator teamGenerator = (FootballTeamGenerator)parseFile(Sports.Football);
+            launchTeamGenerationThread(teamGenerator, GenerateTeams.League.Professional);
         }
 
-        public enum Leagues {NHL, NFL}
+        private void openCollegeFootballTeamCalculator(object sender, EventArgs e)
+        {
+            FootballTeamGenerator teamGenerator = (FootballTeamGenerator)parseFile(Sports.Football);
+            launchTeamGenerationThread(teamGenerator, GenerateTeams.League.College);
+        }
+
+        private void openNHLTeamCalculator(object sender, EventArgs e)
+        {
+            NHLTeamGenerator teamGenerator = (NHLTeamGenerator)parseFile(Sports.Hockey);
+            launchTeamGenerationThread(teamGenerator, GenerateTeams.League.Professional);
+        }
+
+        private void openCollegeBasketballTeamCalculator(object sender, EventArgs e)
+        {
+            BasketballTeamGenerator teamGenerator = (BasketballTeamGenerator)parseFile(Sports.Basketball);
+            launchTeamGenerationThread(teamGenerator, GenerateTeams.League.College);
+        }
+
+        private void launchTeamGenerationThread(GenerateTeams generator, GenerateTeams.League league)
+        {
+            if (generator == null)
+            {
+                return;
+            }
+
+            TeamCompleteListener listener = new TeamCompleteListener();
+            listener.Subscribe(generator);
+            Thread generationThread = new Thread(() =>
+            {
+                generator.createTeams(updateBar, league);
+                this.Invoke((MethodInvoker)delegate
+                {
+                    menuStrip1.Visible = true;
+                });
+            });
+
+            menuStrip1.Visible = false;
+            generationThread.IsBackground = true;
+            generationThread.Start();
+        }
+        #endregion
     }
 }

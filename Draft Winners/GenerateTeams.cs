@@ -13,6 +13,8 @@ namespace Draft_Winners
         protected int mSalaryCap;
         protected int mSalaryThreshold;
 
+        public enum League {Professional, College};
+
         public GenerateTeams(int salaryCap, int salaryThreshold)
         {
             mTeamList = new List<Team>();
@@ -68,6 +70,8 @@ namespace Draft_Winners
         public abstract String convertPlayersToValues();
 
         public abstract void addPlayer(Player player);
+
+        public abstract void createTeams(MainForm.ProgressBarIncrement inc, League league);
 
         private bool isDuplicate(Team addedTeam)
         {

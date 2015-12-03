@@ -48,6 +48,14 @@ namespace Draft_Winners
             }
         }
 
+        public override void createTeams(MainForm.ProgressBarIncrement inc, League league)
+        {
+            if (league == League.Professional)
+            {
+                generateNFLTeams(inc);
+            }
+        }
+
         public void generateNFLTeams(MainForm.ProgressBarIncrement inc)
         {
             int i = 0;

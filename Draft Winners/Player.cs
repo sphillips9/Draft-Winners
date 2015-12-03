@@ -84,6 +84,56 @@ namespace Draft_Winners
             return -1;
         }
 
-        public enum Positions {QB, RB, WR, TE, DST, C, LW, RW, D, G, INVALID}
+        public static Player.Positions convertToEnum(String playerPosition)
+        {
+            if (playerPosition == Player.Positions.QB.ToString())
+            {
+                return Player.Positions.QB;
+            }
+            else if (playerPosition == Player.Positions.RB.ToString())
+            {
+                return Player.Positions.RB;
+            }
+            else if (playerPosition == Player.Positions.DST.ToString())
+            {
+                return Player.Positions.DST;
+            }
+            else if (playerPosition == Player.Positions.TE.ToString())
+            {
+                return Player.Positions.TE;
+            }
+            else if (playerPosition == Player.Positions.WR.ToString())
+            {
+                return Player.Positions.WR;
+            }
+            else if (playerPosition == Player.Positions.C.ToString())
+            {
+                return Player.Positions.C;
+            }
+            else if (playerPosition == Player.Positions.RW.ToString())
+            {
+                return Player.Positions.RW;
+            }
+            else if (playerPosition == Player.Positions.LW.ToString())
+            {
+                return Player.Positions.LW;
+            }
+            else if (playerPosition == Player.Positions.D.ToString())
+            {
+                return Player.Positions.D;
+            }
+            else if (playerPosition == Player.Positions.G.ToString())
+            {
+                return Player.Positions.G;
+            }
+            else if (playerPosition == Player.Positions.F.ToString())
+            {
+                return Player.Positions.F;
+            }
+
+            return Player.Positions.INVALID;
+        }
+
+        public enum Positions {QB, RB, WR, TE, DST, C, LW, RW, D, G, F, INVALID}
     }
 }

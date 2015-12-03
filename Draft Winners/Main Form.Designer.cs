@@ -30,26 +30,27 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.openCSVFileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.openCollegeFileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.openCSVFileForTeams = new System.Windows.Forms.ToolStripMenuItem();
+            this.openNFLFile = new System.Windows.Forms.ToolStripMenuItem();
+            this.openCollegeFootballFile = new System.Windows.Forms.ToolStripMenuItem();
+            this.openNHLFile = new System.Windows.Forms.ToolStripMenuItem();
+            this.openCollegeBasketballFile = new System.Windows.Forms.ToolStripMenuItem();
             this.openPlayerValueSheetToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.calculateFootballPlayerStats = new System.Windows.Forms.ToolStripMenuItem();
+            this.calculateHockeyPlayerStats = new System.Windows.Forms.ToolStripMenuItem();
+            this.calculateBasketballPlayerStats = new System.Windows.Forms.ToolStripMenuItem();
             this.salaryCapTextBox = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.salaryThresholdTextBox = new System.Windows.Forms.TextBox();
             this.workingProgressLabel = new System.Windows.Forms.Label();
-            this.openNHLFileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.footballToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.hockeyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip1
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.openCSVFileToolStripMenuItem,
-            this.openCollegeFileToolStripMenuItem,
-            this.openNHLFileToolStripMenuItem,
+            this.openCSVFileForTeams,
             this.openPlayerValueSheetToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
@@ -57,28 +58,75 @@
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
-            // openCSVFileToolStripMenuItem
+            // openCSVFileForTeams
             // 
-            this.openCSVFileToolStripMenuItem.Name = "openCSVFileToolStripMenuItem";
-            this.openCSVFileToolStripMenuItem.Size = new System.Drawing.Size(93, 20);
-            this.openCSVFileToolStripMenuItem.Text = "Open NFL File";
-            this.openCSVFileToolStripMenuItem.Click += new System.EventHandler(this.openCSVFileToolStripMenuItem_Click);
+            this.openCSVFileForTeams.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.openNFLFile,
+            this.openCollegeFootballFile,
+            this.openNHLFile,
+            this.openCollegeBasketballFile});
+            this.openCSVFileForTeams.Name = "openCSVFileForTeams";
+            this.openCSVFileForTeams.Size = new System.Drawing.Size(93, 20);
+            this.openCSVFileForTeams.Text = "Open CSV File";
             // 
-            // openCollegeFileToolStripMenuItem
+            // openNFLFile
             // 
-            this.openCollegeFileToolStripMenuItem.Name = "openCollegeFileToolStripMenuItem";
-            this.openCollegeFileToolStripMenuItem.Size = new System.Drawing.Size(112, 20);
-            this.openCollegeFileToolStripMenuItem.Text = "Open College File";
-            this.openCollegeFileToolStripMenuItem.Click += new System.EventHandler(this.openCollegeFileToolStripMenuItem_Click);
+            this.openNFLFile.Name = "openNFLFile";
+            this.openNFLFile.Size = new System.Drawing.Size(170, 22);
+            this.openNFLFile.Text = "NFL";
+            this.openNFLFile.Click += new System.EventHandler(this.openNFLTeamCalculator);
+            // 
+            // openCollegeFootballFile
+            // 
+            this.openCollegeFootballFile.Name = "openCollegeFootballFile";
+            this.openCollegeFootballFile.Size = new System.Drawing.Size(170, 22);
+            this.openCollegeFootballFile.Text = "College Football";
+            this.openCollegeFootballFile.Click += new System.EventHandler(this.openCollegeFootballTeamCalculator);
+            // 
+            // openNHLFile
+            // 
+            this.openNHLFile.Name = "openNHLFile";
+            this.openNHLFile.Size = new System.Drawing.Size(170, 22);
+            this.openNHLFile.Text = "NHL";
+            this.openNHLFile.Click += new System.EventHandler(this.openNHLTeamCalculator);
+            // 
+            // openCollegeBasketballFile
+            // 
+            this.openCollegeBasketballFile.Name = "openCollegeBasketballFile";
+            this.openCollegeBasketballFile.Size = new System.Drawing.Size(170, 22);
+            this.openCollegeBasketballFile.Text = "College Basketball";
+            this.openCollegeBasketballFile.Click += new System.EventHandler(this.openCollegeBasketballTeamCalculator);
             // 
             // openPlayerValueSheetToolStripMenuItem
             // 
             this.openPlayerValueSheetToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.footballToolStripMenuItem,
-            this.hockeyToolStripMenuItem});
+            this.calculateFootballPlayerStats,
+            this.calculateHockeyPlayerStats,
+            this.calculateBasketballPlayerStats});
             this.openPlayerValueSheetToolStripMenuItem.Name = "openPlayerValueSheetToolStripMenuItem";
             this.openPlayerValueSheetToolStripMenuItem.Size = new System.Drawing.Size(147, 20);
             this.openPlayerValueSheetToolStripMenuItem.Text = "Open Player Value Sheet";
+            // 
+            // calculateFootballPlayerStats
+            // 
+            this.calculateFootballPlayerStats.Name = "calculateFootballPlayerStats";
+            this.calculateFootballPlayerStats.Size = new System.Drawing.Size(152, 22);
+            this.calculateFootballPlayerStats.Text = "Football";
+            this.calculateFootballPlayerStats.Click += new System.EventHandler(this.footballPlayerStatsCalculator);
+            // 
+            // calculateHockeyPlayerStats
+            // 
+            this.calculateHockeyPlayerStats.Name = "calculateHockeyPlayerStats";
+            this.calculateHockeyPlayerStats.Size = new System.Drawing.Size(152, 22);
+            this.calculateHockeyPlayerStats.Text = "Hockey";
+            this.calculateHockeyPlayerStats.Click += new System.EventHandler(this.hockeyPlayerStatsCalculator);
+            // 
+            // calculateBasketballPlayerStats
+            // 
+            this.calculateBasketballPlayerStats.Name = "calculateBasketballPlayerStats";
+            this.calculateBasketballPlayerStats.Size = new System.Drawing.Size(152, 22);
+            this.calculateBasketballPlayerStats.Text = "Basketball";
+            this.calculateBasketballPlayerStats.Click += new System.EventHandler(this.basketballPlayerStatsCalculator);
             // 
             // salaryCapTextBox
             // 
@@ -123,27 +171,6 @@
             this.workingProgressLabel.TabIndex = 5;
             this.workingProgressLabel.Text = "Awaiting Input";
             // 
-            // openNHLFileToolStripMenuItem
-            // 
-            this.openNHLFileToolStripMenuItem.Name = "openNHLFileToolStripMenuItem";
-            this.openNHLFileToolStripMenuItem.Size = new System.Drawing.Size(96, 20);
-            this.openNHLFileToolStripMenuItem.Text = "Open NHL File";
-            this.openNHLFileToolStripMenuItem.Click += new System.EventHandler(this.openNHLFileToolStripMenuItem_Click);
-            // 
-            // footballToolStripMenuItem
-            // 
-            this.footballToolStripMenuItem.Name = "footballToolStripMenuItem";
-            this.footballToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.footballToolStripMenuItem.Text = "Football";
-            this.footballToolStripMenuItem.Click += new System.EventHandler(this.footballToolStripMenuItem_Click);
-            // 
-            // hockeyToolStripMenuItem
-            // 
-            this.hockeyToolStripMenuItem.Name = "hockeyToolStripMenuItem";
-            this.hockeyToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.hockeyToolStripMenuItem.Text = "Hockey";
-            this.hockeyToolStripMenuItem.Click += new System.EventHandler(this.hockeyToolStripMenuItem_Click);
-            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -168,17 +195,20 @@
 
         #endregion
         private System.Windows.Forms.MenuStrip menuStrip1;
-        private System.Windows.Forms.ToolStripMenuItem openCSVFileToolStripMenuItem;
         private System.Windows.Forms.TextBox salaryCapTextBox;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox salaryThresholdTextBox;
-        private System.Windows.Forms.ToolStripMenuItem openCollegeFileToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem openPlayerValueSheetToolStripMenuItem;
         private System.Windows.Forms.Label workingProgressLabel;
-        private System.Windows.Forms.ToolStripMenuItem openNHLFileToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem footballToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem hockeyToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem calculateFootballPlayerStats;
+        private System.Windows.Forms.ToolStripMenuItem calculateHockeyPlayerStats;
+        private System.Windows.Forms.ToolStripMenuItem openCSVFileForTeams;
+        private System.Windows.Forms.ToolStripMenuItem openNFLFile;
+        private System.Windows.Forms.ToolStripMenuItem openCollegeFootballFile;
+        private System.Windows.Forms.ToolStripMenuItem openNHLFile;
+        private System.Windows.Forms.ToolStripMenuItem openCollegeBasketballFile;
+        private System.Windows.Forms.ToolStripMenuItem calculateBasketballPlayerStats;
     }
 }
 

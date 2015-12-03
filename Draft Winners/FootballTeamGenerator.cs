@@ -60,6 +60,18 @@ namespace Draft_Winners
             }
         }
 
+        public override void createTeams(MainForm.ProgressBarIncrement inc, League league)
+        {
+            if (league == League.Professional)
+            {
+                generateTopNFLTeams(inc);
+            }
+            else
+            {
+                generateTopCollegeTeams(inc);
+            }
+        }
+
         public void generateTopNFLTeams(MainForm.ProgressBarIncrement inc)
         {
             int i = 0;
@@ -254,7 +266,5 @@ namespace Draft_Winners
 
                 return fullCSV; 
         }
-
-
     }
 }
