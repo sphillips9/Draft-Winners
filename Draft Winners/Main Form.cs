@@ -2,6 +2,7 @@
 using System.IO;
 using System.Windows.Forms;
 using System.Threading;
+using System.Diagnostics;
 
 namespace Draft_Winners
 {
@@ -28,6 +29,7 @@ namespace Draft_Winners
             }
         }
 
+        private static Stopwatch watch;
         int uniqueID = 0;
 
         public delegate void ProgressBarIncrement(int progress);
@@ -60,13 +62,28 @@ namespace Draft_Winners
                 return;
             }
         }
+        [ConditionalAttribute("DEBUG")]
+        private static void startTime()
+        {
+            watch = new Stopwatch();
+            watch.Start();
+        }
 
+        [ConditionalAttribute("DEBUG")]
+        private static void finishedTime()
+        {
+            watch.Stop();
+            TimeSpan ts = watch.Elapsed;
+            string elapsedTime = String.Format("{0:00}:{1:00}:{2:00}.{3:00}", ts.Hours, ts.Minutes, ts.Seconds, ts.Milliseconds / 10);
+            Console.WriteLine("Operation Length: " + elapsedTime);
+        }
 
         public MainForm()
         {
             updateBar = new ProgressBarIncrement(updateProgressBar);
             InitializeComponent();
             uniqueID = 0;
+            watch = new Stopwatch();
         }
 
         // Opens NFL team file
@@ -162,6 +179,7 @@ namespace Draft_Winners
 
         private GenerateTeams parseFile(Leagues league)
         {
+            startTime();
             workingProgressLabel.Text = "Starting Calculations";
             GenerateTeams teamGenerator;
 
@@ -218,6 +236,7 @@ namespace Draft_Winners
 
         public static void saveFile(String str)
         {
+            finishedTime();
             SaveFileDialog saveFile = new SaveFileDialog();
             saveFile.Filter = "CSV Files(*.csv) | *.csv";
             saveFile.Title = "Save Team List";
@@ -281,6 +300,6 @@ namespace Draft_Winners
             return Player.Positions.INVALID;
         }
 
-        public enum Leagues { NHL, NFL}
+        public enum Leagues {NHL, NFL}
     }
 }
