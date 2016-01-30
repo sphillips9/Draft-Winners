@@ -59,6 +59,16 @@ namespace Draft_Winners
             }
         }
 
+        public List<Player> getForwards()
+        {
+            return mForwardList;
+        }
+
+        public List<Player> getGuards()
+        {
+            return mGuardList;
+        }
+
         public void generateTopCollegeBasketballTeams(MainForm.ProgressBarIncrement inc)
         {
             int i = 0;

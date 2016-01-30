@@ -44,6 +44,8 @@
             this.label2 = new System.Windows.Forms.Label();
             this.salaryThresholdTextBox = new System.Windows.Forms.TextBox();
             this.workingProgressLabel = new System.Windows.Forms.Label();
+            this.chooseYourPlayersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.collegeBasketballToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -51,7 +53,8 @@
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.openCSVFileForTeams,
-            this.openPlayerValueSheetToolStripMenuItem});
+            this.openPlayerValueSheetToolStripMenuItem,
+            this.chooseYourPlayersToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(547, 24);
@@ -171,6 +174,21 @@
             this.workingProgressLabel.TabIndex = 5;
             this.workingProgressLabel.Text = "Awaiting Input";
             // 
+            // chooseYourPlayersToolStripMenuItem
+            // 
+            this.chooseYourPlayersToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.collegeBasketballToolStripMenuItem});
+            this.chooseYourPlayersToolStripMenuItem.Name = "chooseYourPlayersToolStripMenuItem";
+            this.chooseYourPlayersToolStripMenuItem.Size = new System.Drawing.Size(127, 20);
+            this.chooseYourPlayersToolStripMenuItem.Text = "Choose Your Players";
+            // 
+            // collegeBasketballToolStripMenuItem
+            // 
+            this.collegeBasketballToolStripMenuItem.Name = "collegeBasketballToolStripMenuItem";
+            this.collegeBasketballToolStripMenuItem.Size = new System.Drawing.Size(170, 22);
+            this.collegeBasketballToolStripMenuItem.Text = "College Basketball";
+            this.collegeBasketballToolStripMenuItem.Click += new System.EventHandler(this.pickPlayersCollegeBasketball);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -209,6 +227,8 @@
         private System.Windows.Forms.ToolStripMenuItem openNHLFile;
         private System.Windows.Forms.ToolStripMenuItem openCollegeBasketballFile;
         private System.Windows.Forms.ToolStripMenuItem calculateBasketballPlayerStats;
+        private System.Windows.Forms.ToolStripMenuItem chooseYourPlayersToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem collegeBasketballToolStripMenuItem;
     }
 }
 

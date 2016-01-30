@@ -259,6 +259,13 @@ namespace Draft_Winners
             generationThread.IsBackground = true;
             generationThread.Start();
         }
+
+        private void pickPlayersCollegeBasketball(object sender, EventArgs e)
+        {
+            BasketballTeamGenerator teamGenerator = (BasketballTeamGenerator)parseFile(Sports.Basketball);
+            BasketballChooserForm form = new BasketballChooserForm(teamGenerator.getForwards(), teamGenerator.getGuards());
+            form.Show();
+        }
         #endregion
     }
 }
