@@ -79,10 +79,14 @@ namespace Draft_Winners
                 team.addPlayer(f1);
                 foreach (Player f2 in mForwardList)
                 {
+                    if (f1.Equals(f2))
+                    {
+                        continue;
+                    }
                     team.addPlayer(f2);
                     foreach (Player f3 in mForwardList)
                     {
-                        if (f3.Equals(f2))
+                        if (f3.Equals(f2) || f3.Equals(f1))
                         {
                             continue;
                         }
@@ -106,14 +110,14 @@ namespace Draft_Winners
                                     team.addPlayer(g3);
                                     foreach (Player u1 in mUtilList)
                                     {
-                                        if (u1.Equals(g1) || u1.Equals(g2) || u1.Equals(g3) || u1.Equals(f2) || u1.Equals(f3))
+                                        if (u1.Equals(g1) || u1.Equals(g2) || u1.Equals(g3) || u1.Equals(f1) || u1.Equals(f2) || u1.Equals(f3))
                                         {
                                             continue;
                                         }
                                         team.addPlayer(u1);
                                             foreach (Player u2 in mUtilList)
                                             {
-                                                if (u2.Equals(u1) || u2.Equals(g1) || u2.Equals(g2) || u2.Equals(g3) || u2.Equals(f2) || u2.Equals(f3))
+                                                if (u2.Equals(u1) || u2.Equals(g1) || u2.Equals(g2) || u2.Equals(g3) || u2.Equals(f1) || u2.Equals(f2) || u2.Equals(f3))
                                                 {
                                                     continue;
                                                 }

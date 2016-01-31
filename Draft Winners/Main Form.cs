@@ -263,7 +263,12 @@ namespace Draft_Winners
         private void pickPlayersCollegeBasketball(object sender, EventArgs e)
         {
             BasketballTeamGenerator teamGenerator = (BasketballTeamGenerator)parseFile(Sports.Basketball);
-            BasketballChooserForm form = new BasketballChooserForm(teamGenerator.getForwards(), teamGenerator.getGuards());
+            if (teamGenerator == null)
+            {
+                return;
+            }
+            BasketballChooserForm form = new BasketballChooserForm(teamGenerator.getForwards(), teamGenerator.getGuards(),
+             Convert.ToInt32(salaryCapTextBox.Text), Convert.ToInt32(salaryThresholdTextBox.Text));
             form.Show();
         }
         #endregion
