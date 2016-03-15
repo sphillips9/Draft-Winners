@@ -58,6 +58,11 @@ namespace Draft_Winners
 
         private List<Player> parseComboBox(ComboBox box, List<Player> list)
         {
+            if (box.SelectedItem == null)
+            {
+                return list;
+            }
+
             foreach (Player player in list)
             {
                 if (box.SelectedItem.ToString() == player.getName())
@@ -144,7 +149,7 @@ namespace Draft_Winners
                                         team.addPlayer(u1);
                                         foreach(Player u2 in mUtilList)
                                         {
-                                            if (u2.Equals(u1) || u1.Equals(g1) || u1.Equals(g2) || u1.Equals(g3) || u1.Equals(f1) || u1.Equals(f2) || u1.Equals(f3))
+                                            if (u2.Equals(u1) || u2.Equals(g1) || u2.Equals(g2) || u2.Equals(g3) || u2.Equals(f1) || u2.Equals(f2) || u2.Equals(f3))
                                             {
                                                 continue;
                                             }

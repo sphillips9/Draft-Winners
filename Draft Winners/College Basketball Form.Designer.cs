@@ -60,6 +60,7 @@
             // 
             // forward1Box
             // 
+            this.forward1Box.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.forward1Box.FormattingEnabled = true;
             this.forward1Box.Location = new System.Drawing.Point(16, 58);
             this.forward1Box.Name = "forward1Box";
@@ -68,6 +69,7 @@
             // 
             // guard1Box
             // 
+            this.guard1Box.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.guard1Box.FormattingEnabled = true;
             this.guard1Box.Location = new System.Drawing.Point(264, 58);
             this.guard1Box.Name = "guard1Box";
@@ -76,6 +78,7 @@
             // 
             // guard2Box
             // 
+            this.guard2Box.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.guard2Box.FormattingEnabled = true;
             this.guard2Box.Location = new System.Drawing.Point(264, 114);
             this.guard2Box.Name = "guard2Box";
@@ -84,6 +87,7 @@
             // 
             // guard3Box
             // 
+            this.guard3Box.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.guard3Box.FormattingEnabled = true;
             this.guard3Box.Location = new System.Drawing.Point(264, 173);
             this.guard3Box.Name = "guard3Box";
@@ -102,6 +106,7 @@
             // 
             // forward2Box
             // 
+            this.forward2Box.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.forward2Box.FormattingEnabled = true;
             this.forward2Box.Location = new System.Drawing.Point(16, 114);
             this.forward2Box.Name = "forward2Box";
@@ -110,6 +115,7 @@
             // 
             // forward3Box
             // 
+            this.forward3Box.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.forward3Box.FormattingEnabled = true;
             this.forward3Box.Location = new System.Drawing.Point(16, 174);
             this.forward3Box.Name = "forward3Box";
@@ -120,7 +126,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(527, 205);
+            this.ClientSize = new System.Drawing.Size(524, 200);
             this.Controls.Add(this.forward3Box);
             this.Controls.Add(this.forward2Box);
             this.Controls.Add(this.createTeamButton);
