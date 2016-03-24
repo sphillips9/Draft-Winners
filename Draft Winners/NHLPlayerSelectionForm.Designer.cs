@@ -44,6 +44,8 @@
             this.utilBox = new System.Windows.Forms.ComboBox();
             this.label5 = new System.Windows.Forms.Label();
             this.createTeamButton = new System.Windows.Forms.Button();
+            this.nhlLogo = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.nhlLogo)).BeginInit();
             this.SuspendLayout();
             // 
             // goalieBox
@@ -182,11 +184,21 @@
             this.createTeamButton.UseVisualStyleBackColor = true;
             this.createTeamButton.Click += new System.EventHandler(this.createTeamButton_Click);
             // 
+            // nhlLogo
+            // 
+            this.nhlLogo.Image = ((System.Drawing.Image)(resources.GetObject("nhlLogo.Image")));
+            this.nhlLogo.Location = new System.Drawing.Point(523, 30);
+            this.nhlLogo.Name = "nhlLogo";
+            this.nhlLogo.Size = new System.Drawing.Size(96, 96);
+            this.nhlLogo.TabIndex = 19;
+            this.nhlLogo.TabStop = false;
+            // 
             // NHLPlayerSelectionForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(647, 171);
+            this.Controls.Add(this.nhlLogo);
             this.Controls.Add(this.createTeamButton);
             this.Controls.Add(this.defenseBox2);
             this.Controls.Add(this.defenseBox1);
@@ -205,6 +217,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "NHLPlayerSelectionForm";
             this.Text = "NHLPlayerSelectionForm";
+            ((System.ComponentModel.ISupportInitialize)(this.nhlLogo)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -227,5 +240,6 @@
         private System.Windows.Forms.ComboBox utilBox;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Button createTeamButton;
+        private System.Windows.Forms.PictureBox nhlLogo;
     }
 }
