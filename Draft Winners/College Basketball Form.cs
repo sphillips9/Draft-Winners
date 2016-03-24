@@ -105,7 +105,7 @@ namespace Draft_Winners
 
         private void generateTeams()
         {
-            foreach(Player f1 in  fixedForward1)
+            foreach(Player f1 in fixedForward1)
             {
                 Team team = new Team();
                 team.addPlayer(f1);
@@ -173,7 +173,7 @@ namespace Draft_Winners
             }
         }
 
-        //DUPLICATING ALOT OF LOGIC FROM GENERATE TEAMS THIS NEEDS A BETTER DESIGN.
+        //DUPLICATING A LOT OF LOGIC FROM GENERATE TEAMS THIS NEEDS A BETTER DESIGN.
         private void addTeam(Team team)
         {
             if (team.getTeamsTotalSalary() < mSalaryCap - mSalaryThreshold || team.getTeamsTotalSalary() > mSalaryCap || isDuplicate(team))

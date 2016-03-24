@@ -267,8 +267,23 @@ namespace Draft_Winners
             {
                 return;
             }
+
             BasketballChooserForm form = new BasketballChooserForm(teamGenerator.getForwards(), teamGenerator.getGuards(),
              Convert.ToInt32(salaryCapTextBox.Text), Convert.ToInt32(salaryThresholdTextBox.Text));
+            form.Show();
+        }
+
+        private void nationalHockeyLeagueToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            NHLTeamGenerator teamGenerator = (NHLTeamGenerator)parseFile(Sports.Hockey);
+            if (teamGenerator == null)
+            {
+                return;
+            }
+
+            NHLPlayerSelectionForm form = new NHLPlayerSelectionForm(teamGenerator.getCenters(), teamGenerator.getWingers(),
+             teamGenerator.getDefenses(), teamGenerator.getGoalies(), Convert.ToInt32(salaryCapTextBox.Text),
+             Convert.ToInt32(salaryThresholdTextBox.Text));
             form.Show();
         }
         #endregion

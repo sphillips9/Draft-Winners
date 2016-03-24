@@ -48,6 +48,26 @@ namespace Draft_Winners
             }
         }
 
+        public List<Player> getGoalies()
+        {
+            return mGoalieList;
+        }
+
+        public List<Player> getDefenses()
+        {
+            return mDefenseList;
+        }
+
+        public List<Player> getWingers()
+        {
+            return mWingerList;
+        }
+
+        public List<Player> getCenters()
+        {
+            return mCenterList;
+        }
+
         public override void createTeams(MainForm.ProgressBarIncrement inc, League league)
         {
             if (league == League.Professional)

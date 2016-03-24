@@ -92,6 +92,12 @@
     <Compile Include="Main Form.Designer.cs">
       <DependentUpon>Main Form.cs</DependentUpon>
     </Compile>
+    <Compile Include="NHLPlayerSelectionForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NHLPlayerSelectionForm.Designer.cs">
+      <DependentUpon>NHLPlayerSelectionForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="NHLTeamGenerator.cs" />
     <Compile Include="Player.cs" />
     <Compile Include="Program.cs" />
@@ -102,6 +108,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Main Form.resx">
       <DependentUpon>Main Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NHLPlayerSelectionForm.resx">
+      <DependentUpon>NHLPlayerSelectionForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -128,7 +137,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="draftkings-app-logo.ico" />
-    <Content Include="ico.ico" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">

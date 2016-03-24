@@ -39,13 +39,14 @@
             this.calculateFootballPlayerStats = new System.Windows.Forms.ToolStripMenuItem();
             this.calculateHockeyPlayerStats = new System.Windows.Forms.ToolStripMenuItem();
             this.calculateBasketballPlayerStats = new System.Windows.Forms.ToolStripMenuItem();
+            this.chooseYourPlayersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.collegeBasketballToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.salaryCapTextBox = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.salaryThresholdTextBox = new System.Windows.Forms.TextBox();
             this.workingProgressLabel = new System.Windows.Forms.Label();
-            this.chooseYourPlayersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.collegeBasketballToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.nationalHockeyLeagueToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -107,29 +108,45 @@
             this.calculateHockeyPlayerStats,
             this.calculateBasketballPlayerStats});
             this.openPlayerValueSheetToolStripMenuItem.Name = "openPlayerValueSheetToolStripMenuItem";
-            this.openPlayerValueSheetToolStripMenuItem.Size = new System.Drawing.Size(147, 20);
+            this.openPlayerValueSheetToolStripMenuItem.Size = new System.Drawing.Size(146, 20);
             this.openPlayerValueSheetToolStripMenuItem.Text = "Open Player Value Sheet";
             // 
             // calculateFootballPlayerStats
             // 
             this.calculateFootballPlayerStats.Name = "calculateFootballPlayerStats";
-            this.calculateFootballPlayerStats.Size = new System.Drawing.Size(152, 22);
+            this.calculateFootballPlayerStats.Size = new System.Drawing.Size(127, 22);
             this.calculateFootballPlayerStats.Text = "Football";
             this.calculateFootballPlayerStats.Click += new System.EventHandler(this.footballPlayerStatsCalculator);
             // 
             // calculateHockeyPlayerStats
             // 
             this.calculateHockeyPlayerStats.Name = "calculateHockeyPlayerStats";
-            this.calculateHockeyPlayerStats.Size = new System.Drawing.Size(152, 22);
+            this.calculateHockeyPlayerStats.Size = new System.Drawing.Size(127, 22);
             this.calculateHockeyPlayerStats.Text = "Hockey";
             this.calculateHockeyPlayerStats.Click += new System.EventHandler(this.hockeyPlayerStatsCalculator);
             // 
             // calculateBasketballPlayerStats
             // 
             this.calculateBasketballPlayerStats.Name = "calculateBasketballPlayerStats";
-            this.calculateBasketballPlayerStats.Size = new System.Drawing.Size(152, 22);
+            this.calculateBasketballPlayerStats.Size = new System.Drawing.Size(127, 22);
             this.calculateBasketballPlayerStats.Text = "Basketball";
             this.calculateBasketballPlayerStats.Click += new System.EventHandler(this.basketballPlayerStatsCalculator);
+            // 
+            // chooseYourPlayersToolStripMenuItem
+            // 
+            this.chooseYourPlayersToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.collegeBasketballToolStripMenuItem,
+            this.nationalHockeyLeagueToolStripMenuItem});
+            this.chooseYourPlayersToolStripMenuItem.Name = "chooseYourPlayersToolStripMenuItem";
+            this.chooseYourPlayersToolStripMenuItem.Size = new System.Drawing.Size(126, 20);
+            this.chooseYourPlayersToolStripMenuItem.Text = "Choose Your Players";
+            // 
+            // collegeBasketballToolStripMenuItem
+            // 
+            this.collegeBasketballToolStripMenuItem.Name = "collegeBasketballToolStripMenuItem";
+            this.collegeBasketballToolStripMenuItem.Size = new System.Drawing.Size(203, 22);
+            this.collegeBasketballToolStripMenuItem.Text = "College Basketball";
+            this.collegeBasketballToolStripMenuItem.Click += new System.EventHandler(this.pickPlayersCollegeBasketball);
             // 
             // salaryCapTextBox
             // 
@@ -174,20 +191,12 @@
             this.workingProgressLabel.TabIndex = 5;
             this.workingProgressLabel.Text = "Awaiting Input";
             // 
-            // chooseYourPlayersToolStripMenuItem
+            // nationalHockeyLeagueToolStripMenuItem
             // 
-            this.chooseYourPlayersToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.collegeBasketballToolStripMenuItem});
-            this.chooseYourPlayersToolStripMenuItem.Name = "chooseYourPlayersToolStripMenuItem";
-            this.chooseYourPlayersToolStripMenuItem.Size = new System.Drawing.Size(127, 20);
-            this.chooseYourPlayersToolStripMenuItem.Text = "Choose Your Players";
-            // 
-            // collegeBasketballToolStripMenuItem
-            // 
-            this.collegeBasketballToolStripMenuItem.Name = "collegeBasketballToolStripMenuItem";
-            this.collegeBasketballToolStripMenuItem.Size = new System.Drawing.Size(170, 22);
-            this.collegeBasketballToolStripMenuItem.Text = "College Basketball";
-            this.collegeBasketballToolStripMenuItem.Click += new System.EventHandler(this.pickPlayersCollegeBasketball);
+            this.nationalHockeyLeagueToolStripMenuItem.Name = "nationalHockeyLeagueToolStripMenuItem";
+            this.nationalHockeyLeagueToolStripMenuItem.Size = new System.Drawing.Size(203, 22);
+            this.nationalHockeyLeagueToolStripMenuItem.Text = "National Hockey League";
+            this.nationalHockeyLeagueToolStripMenuItem.Click += new System.EventHandler(this.nationalHockeyLeagueToolStripMenuItem_Click);
             // 
             // MainForm
             // 
@@ -229,6 +238,7 @@
         private System.Windows.Forms.ToolStripMenuItem calculateBasketballPlayerStats;
         private System.Windows.Forms.ToolStripMenuItem chooseYourPlayersToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem collegeBasketballToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem nationalHockeyLeagueToolStripMenuItem;
     }
 }
 
