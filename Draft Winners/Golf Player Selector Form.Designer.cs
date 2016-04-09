@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(GolfPlayerSelectorForm));
             this.golfer3Box = new System.Windows.Forms.ComboBox();
             this.golfer2Box = new System.Windows.Forms.ComboBox();
             this.createTeamButton = new System.Windows.Forms.Button();
@@ -36,6 +37,8 @@
             this.golfer4Box = new System.Windows.Forms.ComboBox();
             this.golfer1Box = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.pgaLogo = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.pgaLogo)).BeginInit();
             this.SuspendLayout();
             // 
             // golfer3Box
@@ -111,11 +114,21 @@
             this.label1.TabIndex = 14;
             this.label1.Text = "Golfers";
             // 
+            // pgaLogo
+            // 
+            this.pgaLogo.Image = ((System.Drawing.Image)(resources.GetObject("pgaLogo.Image")));
+            this.pgaLogo.Location = new System.Drawing.Point(306, 44);
+            this.pgaLogo.Name = "pgaLogo";
+            this.pgaLogo.Size = new System.Drawing.Size(116, 122);
+            this.pgaLogo.TabIndex = 23;
+            this.pgaLogo.TabStop = false;
+            // 
             // GolfPlayerSelectorForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(434, 206);
+            this.Controls.Add(this.pgaLogo);
             this.Controls.Add(this.golfer3Box);
             this.Controls.Add(this.golfer2Box);
             this.Controls.Add(this.createTeamButton);
@@ -124,8 +137,10 @@
             this.Controls.Add(this.golfer4Box);
             this.Controls.Add(this.golfer1Box);
             this.Controls.Add(this.label1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "GolfPlayerSelectorForm";
             this.Text = "Golf Player Selector";
+            ((System.ComponentModel.ISupportInitialize)(this.pgaLogo)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -141,5 +156,6 @@
         private System.Windows.Forms.ComboBox golfer4Box;
         private System.Windows.Forms.ComboBox golfer1Box;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.PictureBox pgaLogo;
     }
 }
