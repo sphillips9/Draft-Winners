@@ -78,12 +78,18 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BasketballTeamGenerator.cs" />
-    <Compile Include="FootballTeamGenerator.cs" />
     <Compile Include="College Basketball Form.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="College Basketball Form.Designer.cs">
       <DependentUpon>College Basketball Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FootballTeamGenerator.cs" />
+    <Compile Include="Golf Player Selector Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Golf Player Selector Form.Designer.cs">
+      <DependentUpon>Golf Player Selector Form.cs</DependentUpon>
     </Compile>
     <Compile Include="GenerateTeams.cs" />
     <Compile Include="Main Form.cs">
@@ -98,6 +104,7 @@
     <Compile Include="NHLPlayerSelectionForm.Designer.cs">
       <DependentUpon>NHLPlayerSelectionForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="GolfTeamGenerator.cs" />
     <Compile Include="NHLTeamGenerator.cs" />
     <Compile Include="Player.cs" />
     <Compile Include="Program.cs" />
@@ -105,6 +112,9 @@
     <Compile Include="Team.cs" />
     <EmbeddedResource Include="College Basketball Form.resx">
       <DependentUpon>College Basketball Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Golf Player Selector Form.resx">
+      <DependentUpon>Golf Player Selector Form.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Main Form.resx">
       <DependentUpon>Main Form.cs</DependentUpon>

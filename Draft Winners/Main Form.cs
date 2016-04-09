@@ -17,7 +17,7 @@ namespace Draft_Winners
         public delegate void ProgressBarIncrement(int progress);
         public ProgressBarIncrement updateBar;
 
-        public enum Sports { Hockey, Football, Basketball }
+        public enum Sports { Hockey, Football, Basketball, Golf }
         #endregion
 
         #region constructor
@@ -116,6 +116,11 @@ namespace Draft_Winners
             calculatePlayerStats(Sports.Basketball);
         }
 
+        private void golfToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            calculatePlayerStats(Sports.Golf);
+        }
+
         private void calculatePlayerStats(Sports sport)
         {
             GenerateTeams teamGen = parseFile(sport);
@@ -146,6 +151,10 @@ namespace Draft_Winners
             else if (league == Sports.Basketball)
             {
                 teamGenerator = new BasketballTeamGenerator(salaryCap, threshold);
+            }
+            else if (league == Sports.Golf)
+            {
+                teamGenerator = new GolfTeamGenerator(salaryCap, threshold);
             }
             else
             {
@@ -283,6 +292,19 @@ namespace Draft_Winners
 
             NHLPlayerSelectionForm form = new NHLPlayerSelectionForm(teamGenerator.getCenters(), teamGenerator.getWingers(),
              teamGenerator.getDefenses(), teamGenerator.getGoalies(), Convert.ToInt32(salaryCapTextBox.Text),
+             Convert.ToInt32(salaryThresholdTextBox.Text));
+            form.Show();
+        }
+
+        private void golfToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            GolfTeamGenerator teamGenerator = (GolfTeamGenerator)parseFile(Sports.Golf);
+            if (teamGenerator == null)
+            {
+                return;
+            }
+
+            GolfPlayerSelectorForm form = new GolfPlayerSelectorForm(teamGenerator.getGolfers(), Convert.ToInt32(salaryCapTextBox.Text),
              Convert.ToInt32(salaryThresholdTextBox.Text));
             form.Show();
         }

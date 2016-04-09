@@ -39,14 +39,16 @@
             this.calculateFootballPlayerStats = new System.Windows.Forms.ToolStripMenuItem();
             this.calculateHockeyPlayerStats = new System.Windows.Forms.ToolStripMenuItem();
             this.calculateBasketballPlayerStats = new System.Windows.Forms.ToolStripMenuItem();
+            this.golfToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.chooseYourPlayersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.collegeBasketballToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.nationalHockeyLeagueToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.golfToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.salaryCapTextBox = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.salaryThresholdTextBox = new System.Windows.Forms.TextBox();
             this.workingProgressLabel = new System.Windows.Forms.Label();
-            this.nationalHockeyLeagueToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -106,7 +108,8 @@
             this.openPlayerValueSheetToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.calculateFootballPlayerStats,
             this.calculateHockeyPlayerStats,
-            this.calculateBasketballPlayerStats});
+            this.calculateBasketballPlayerStats,
+            this.golfToolStripMenuItem});
             this.openPlayerValueSheetToolStripMenuItem.Name = "openPlayerValueSheetToolStripMenuItem";
             this.openPlayerValueSheetToolStripMenuItem.Size = new System.Drawing.Size(146, 20);
             this.openPlayerValueSheetToolStripMenuItem.Text = "Open Player Value Sheet";
@@ -132,11 +135,19 @@
             this.calculateBasketballPlayerStats.Text = "Basketball";
             this.calculateBasketballPlayerStats.Click += new System.EventHandler(this.basketballPlayerStatsCalculator);
             // 
+            // golfToolStripMenuItem
+            // 
+            this.golfToolStripMenuItem.Name = "golfToolStripMenuItem";
+            this.golfToolStripMenuItem.Size = new System.Drawing.Size(127, 22);
+            this.golfToolStripMenuItem.Text = "Golf";
+            this.golfToolStripMenuItem.Click += new System.EventHandler(this.golfToolStripMenuItem_Click);
+            // 
             // chooseYourPlayersToolStripMenuItem
             // 
             this.chooseYourPlayersToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.collegeBasketballToolStripMenuItem,
-            this.nationalHockeyLeagueToolStripMenuItem});
+            this.nationalHockeyLeagueToolStripMenuItem,
+            this.golfToolStripMenuItem1});
             this.chooseYourPlayersToolStripMenuItem.Name = "chooseYourPlayersToolStripMenuItem";
             this.chooseYourPlayersToolStripMenuItem.Size = new System.Drawing.Size(126, 20);
             this.chooseYourPlayersToolStripMenuItem.Text = "Choose Your Players";
@@ -147,6 +158,20 @@
             this.collegeBasketballToolStripMenuItem.Size = new System.Drawing.Size(203, 22);
             this.collegeBasketballToolStripMenuItem.Text = "College Basketball";
             this.collegeBasketballToolStripMenuItem.Click += new System.EventHandler(this.pickPlayersCollegeBasketball);
+            // 
+            // nationalHockeyLeagueToolStripMenuItem
+            // 
+            this.nationalHockeyLeagueToolStripMenuItem.Name = "nationalHockeyLeagueToolStripMenuItem";
+            this.nationalHockeyLeagueToolStripMenuItem.Size = new System.Drawing.Size(203, 22);
+            this.nationalHockeyLeagueToolStripMenuItem.Text = "National Hockey League";
+            this.nationalHockeyLeagueToolStripMenuItem.Click += new System.EventHandler(this.nationalHockeyLeagueToolStripMenuItem_Click);
+            // 
+            // golfToolStripMenuItem1
+            // 
+            this.golfToolStripMenuItem1.Name = "golfToolStripMenuItem1";
+            this.golfToolStripMenuItem1.Size = new System.Drawing.Size(203, 22);
+            this.golfToolStripMenuItem1.Text = "Golf";
+            this.golfToolStripMenuItem1.Click += new System.EventHandler(this.golfToolStripMenuItem1_Click);
             // 
             // salaryCapTextBox
             // 
@@ -191,13 +216,6 @@
             this.workingProgressLabel.TabIndex = 5;
             this.workingProgressLabel.Text = "Awaiting Input";
             // 
-            // nationalHockeyLeagueToolStripMenuItem
-            // 
-            this.nationalHockeyLeagueToolStripMenuItem.Name = "nationalHockeyLeagueToolStripMenuItem";
-            this.nationalHockeyLeagueToolStripMenuItem.Size = new System.Drawing.Size(203, 22);
-            this.nationalHockeyLeagueToolStripMenuItem.Text = "National Hockey League";
-            this.nationalHockeyLeagueToolStripMenuItem.Click += new System.EventHandler(this.nationalHockeyLeagueToolStripMenuItem_Click);
-            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -239,6 +257,8 @@
         private System.Windows.Forms.ToolStripMenuItem chooseYourPlayersToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem collegeBasketballToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem nationalHockeyLeagueToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem golfToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem golfToolStripMenuItem1;
     }
 }
 
