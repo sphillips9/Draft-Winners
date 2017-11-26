@@ -210,7 +210,7 @@ namespace Draft_Winners
 
             if (saveFile.FileName != "")
             {
-                using (FileStream f = new FileStream(saveFile.FileName, FileMode.Append, FileAccess.Write))
+                using (FileStream f = new FileStream(saveFile.FileName, FileMode.Create, FileAccess.Write))
                 {
                     using (StreamWriter s = new StreamWriter(f))
                     {
@@ -306,6 +306,18 @@ namespace Draft_Winners
 
             GolfPlayerSelectorForm form = new GolfPlayerSelectorForm(teamGenerator.getGolfers(), Convert.ToInt32(salaryCapTextBox.Text),
              Convert.ToInt32(salaryThresholdTextBox.Text));
+            form.Show();
+        }
+
+        private void nFLToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FootballTeamGenerator teamGenerator = (FootballTeamGenerator)parseFile(Sports.Football);
+            if (teamGenerator == null)
+            {
+                return;
+            }
+
+            NFLChooseForm form = new NFLChooseForm(teamGenerator.getAllPlayers(), Convert.ToInt32(salaryCapTextBox.Text), Convert.ToInt32(salaryThresholdTextBox.Text));
             form.Show();
         }
         #endregion

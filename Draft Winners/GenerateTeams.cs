@@ -46,8 +46,12 @@ namespace Draft_Winners
                 if (lowestTeam.getTeamsTotalPoints() > x.getTeamsTotalPoints())
                 {
                     lowestTeam = x;
-                    continue;
                 }
+            }
+
+            if (team.getTeamsTotalPoints() < lowestTeam.getTeamsTotalPoints())
+            {
+                return;
             }
 
             mTeamList.Remove(lowestTeam);

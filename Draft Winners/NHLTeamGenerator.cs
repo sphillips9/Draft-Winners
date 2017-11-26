@@ -72,11 +72,11 @@ namespace Draft_Winners
         {
             if (league == League.Professional)
             {
-                generateNFLTeams(inc);
+                generateNHLTeams(inc);
             }
         }
 
-        public void generateNFLTeams(MainForm.ProgressBarIncrement inc)
+        public void generateNHLTeams(MainForm.ProgressBarIncrement inc)
         {
             int i = 0;
             int x = 0;

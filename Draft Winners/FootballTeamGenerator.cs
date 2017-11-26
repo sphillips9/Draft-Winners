@@ -26,6 +26,22 @@ namespace Draft_Winners
             mCollegeFlex = new List<Player>();
         }
 
+        /*
+         * Returns a List of all football positions parsed
+         * Positions are: QB/RB/WR/TE/DST/Flex in that order.
+         */
+        public List<List<Player>> getAllPlayers()
+        {
+            List<List<Player>> allPlayers = new List<List<Player>>();
+            allPlayers.Add(mQBList);
+            allPlayers.Add(mRBList);
+            allPlayers.Add(mWRList);
+            allPlayers.Add(mTEList);
+            allPlayers.Add(mDSTList);
+            allPlayers.Add(mFlexList);
+            return allPlayers;
+        }
+
         override public void addPlayer(Player player)
         {
             if (player.getPosition() == Player.Positions.QB)
@@ -249,22 +265,22 @@ namespace Draft_Winners
 
         override public String convertPlayersToValues()
         {
-                List<Player> allPlayers = new List<Player>();
-                allPlayers.AddRange(mQBList);
-                allPlayers.AddRange(mRBList);
-                allPlayers.AddRange(mWRList);
-                allPlayers.AddRange(mTEList);
-                allPlayers.AddRange(mDSTList);
-                allPlayers.RemoveAll(item => item.getDollarsPerPoint() == 0);
+            List<Player> allPlayers = new List<Player>();
+            allPlayers.AddRange(mQBList);
+            allPlayers.AddRange(mRBList);
+            allPlayers.AddRange(mWRList);
+            allPlayers.AddRange(mTEList);
+            allPlayers.AddRange(mDSTList);
+            allPlayers.RemoveAll(item => item.getDollarsPerPoint() == 0);
 
-                allPlayers.Sort((a, b) => { return a.getDollarsPerPoint().CompareTo(b.getDollarsPerPoint()); });
-                String fullCSV = "Position, Name, Salary, Dollars Per Fantasy Point\n";
-                foreach (Player player in allPlayers)
-                {
-                    fullCSV += player.toStringWithDollars() + "\n";
-                }
+            allPlayers.Sort((a, b) => { return a.getDollarsPerPoint().CompareTo(b.getDollarsPerPoint()); });
+            String fullCSV = "Position, Name, Salary, Dollars Per Fantasy Point\n";
+            foreach (Player player in allPlayers)
+            {
+                fullCSV += player.toStringWithDollars() + "\n";
+            }
 
-                return fullCSV; 
+            return fullCSV;
         }
     }
 }
