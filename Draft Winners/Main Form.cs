@@ -186,11 +186,11 @@ namespace Draft_Winners
                     }
 
                     int salary;
-                    Int32.TryParse(values[2], out salary);
+                    Int32.TryParse(values[5], out salary);
                     double points;
-                    Double.TryParse(values[4], out points);
+                    Double.TryParse(values[8], out points);
 
-                    Player player = new Player(pos, values[1], uniqueID++, salary, points);
+                    Player player = new Player(pos, values[2], uniqueID++, salary, points);
                     teamGenerator.addPlayer(player);
                 }
                 reader.Close();
