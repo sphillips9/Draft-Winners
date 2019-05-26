@@ -50,6 +50,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.salaryThresholdTextBox = new System.Windows.Forms.TextBox();
             this.workingProgressLabel = new System.Windows.Forms.Label();
+            this.showdownToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -118,28 +119,28 @@
             // calculateFootballPlayerStats
             // 
             this.calculateFootballPlayerStats.Name = "calculateFootballPlayerStats";
-            this.calculateFootballPlayerStats.Size = new System.Drawing.Size(152, 22);
+            this.calculateFootballPlayerStats.Size = new System.Drawing.Size(127, 22);
             this.calculateFootballPlayerStats.Text = "Football";
             this.calculateFootballPlayerStats.Click += new System.EventHandler(this.footballPlayerStatsCalculator);
             // 
             // calculateHockeyPlayerStats
             // 
             this.calculateHockeyPlayerStats.Name = "calculateHockeyPlayerStats";
-            this.calculateHockeyPlayerStats.Size = new System.Drawing.Size(152, 22);
+            this.calculateHockeyPlayerStats.Size = new System.Drawing.Size(127, 22);
             this.calculateHockeyPlayerStats.Text = "Hockey";
             this.calculateHockeyPlayerStats.Click += new System.EventHandler(this.hockeyPlayerStatsCalculator);
             // 
             // calculateBasketballPlayerStats
             // 
             this.calculateBasketballPlayerStats.Name = "calculateBasketballPlayerStats";
-            this.calculateBasketballPlayerStats.Size = new System.Drawing.Size(152, 22);
+            this.calculateBasketballPlayerStats.Size = new System.Drawing.Size(127, 22);
             this.calculateBasketballPlayerStats.Text = "Basketball";
             this.calculateBasketballPlayerStats.Click += new System.EventHandler(this.basketballPlayerStatsCalculator);
             // 
             // golfToolStripMenuItem
             // 
             this.golfToolStripMenuItem.Name = "golfToolStripMenuItem";
-            this.golfToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.golfToolStripMenuItem.Size = new System.Drawing.Size(127, 22);
             this.golfToolStripMenuItem.Text = "Golf";
             this.golfToolStripMenuItem.Click += new System.EventHandler(this.golfToolStripMenuItem_Click);
             // 
@@ -149,7 +150,8 @@
             this.collegeBasketballToolStripMenuItem,
             this.nationalHockeyLeagueToolStripMenuItem,
             this.golfToolStripMenuItem1,
-            this.nHLToolStripMenuItem});
+            this.nHLToolStripMenuItem,
+            this.showdownToolStripMenuItem});
             this.chooseYourPlayersToolStripMenuItem.Name = "chooseYourPlayersToolStripMenuItem";
             this.chooseYourPlayersToolStripMenuItem.Size = new System.Drawing.Size(126, 20);
             this.chooseYourPlayersToolStripMenuItem.Text = "Choose Your Players";
@@ -225,6 +227,13 @@
             this.workingProgressLabel.TabIndex = 5;
             this.workingProgressLabel.Text = "Awaiting Input";
             // 
+            // showdownToolStripMenuItem
+            // 
+            this.showdownToolStripMenuItem.Name = "showdownToolStripMenuItem";
+            this.showdownToolStripMenuItem.Size = new System.Drawing.Size(203, 22);
+            this.showdownToolStripMenuItem.Text = "Showdown";
+            this.showdownToolStripMenuItem.Click += new System.EventHandler(this.ShowdownToolStripMenuItem_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -269,6 +278,7 @@
         private System.Windows.Forms.ToolStripMenuItem golfToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem golfToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem nHLToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem showdownToolStripMenuItem;
     }
 }
 

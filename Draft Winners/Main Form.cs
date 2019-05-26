@@ -3,6 +3,7 @@ using System.IO;
 using System.Windows.Forms;
 using System.Threading;
 using System.Diagnostics;
+using System.Collections.Generic;
 
 namespace Draft_Winners
 {
@@ -321,5 +322,52 @@ namespace Draft_Winners
             form.Show();
         }
         #endregion
+
+        private void ShowdownToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            List<Player> players = new List<Player>();
+            OpenFileDialog file = new OpenFileDialog();
+            file.Multiselect = false;
+
+            if (file.ShowDialog() == DialogResult.OK)
+            {
+                Console.WriteLine(file.FileName);
+                var reader = new StreamReader(File.OpenRead(file.FileName));
+
+                while (!reader.EndOfStream)
+                {
+                    var line = reader.ReadLine();
+                    String[] values = line.Split(',');
+                    for (int i = 0; i < values.Length; i++)
+                    {
+                        values[i] = values[i].Replace("\"", String.Empty);
+                    }
+
+
+                    Player.Positions pos = Player.convertToEnum(values[0]);
+                    if (pos == Player.Positions.INVALID)
+                    {
+                        continue;
+                    }
+
+                    int salary;
+                    Int32.TryParse(values[5], out salary);
+                    double points;
+                    Double.TryParse(values[8], out points);
+
+                    Player player = new Player(pos, values[2], uniqueID++, salary, points);
+                    players.Add(player);
+                }
+                reader.Close();
+            }
+
+            if (players.Count < 6)
+            {
+                return;
+            }
+
+            Showdown_Player_Form form = new Showdown_Player_Form(players);
+            form.Show();
+        }
     }
 }
